@@ -15,8 +15,17 @@ RUN mv phpunit.phar /usr/local/bin/phpunit
 
 # Install required deb packages
 RUN apt-get update && apt-get -y upgrade && \
-    apt-get install -y libgmp-dev libmcrypt-dev libpng12-dev libfreetype6-dev libjpeg-dev libpng-dev libldap2-dev && \
+    apt-get install -y locales libgmp-dev libmcrypt-dev libpng12-dev libfreetype6-dev libjpeg-dev libpng-dev libldap2-dev && \
     rm -rf /var/lib/apt/lists/*
+
+# Set the locale
+RUN echo 'de_DE.UTF-8 UTF-8' >> /etc/locale.gen
+RUN locale-gen de_DE.UTF-8
+RUN locale-gen de_DE.iso88591
+ENV LANG de_DE.UTF-8
+ENV LANGUAGE de_DE:de
+ENV LC_ALL de_DE.UTF-8
+
 
 # Configure apache and required PHP modules
 RUN docker-php-ext-configure mysqli --with-mysqli=mysqlnd && \
@@ -52,4 +61,3 @@ RUN cp ${WEB_REPO}/config.dist.php ${WEB_REPO}/config.php && \
     ${WEB_REPO}/config.php
 
 EXPOSE 80
-
