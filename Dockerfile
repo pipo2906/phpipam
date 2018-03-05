@@ -5,7 +5,7 @@ ENV PHPIPAM_SOURCE https://github.com/phpipam/phpipam/archive/
 ENV PHPIPAM_VERSION 1.3.1
 ENV WEB_REPO /var/www/html
 
-RUN echo 'eintrag eines lokalen Proxy servers;' > /etc/apt/apt.conf
+RUN echo 'eintrag lokaler Proxy ;' > /etc/apt/apt.conf
 RUN printf 'deb http://deb.debian.org/debian/ oldstable main contrib non-free\ndeb http://deb.debian.org/debian/ oldstable-updates main contrib non-free\ndeb http://deb.debian.org/debian-security oldstable/updates main' > /etc/apt/sources.list
 
 
