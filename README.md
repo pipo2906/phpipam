@@ -1,6 +1,6 @@
 # docker-phpipam
 
-phpIPAM is an open-source web IP address management application. Its goal is to provide light and simple IP address management application.
+phpIPAM is an open-source web IP address management application. It goal is to provide light and simple IP address management application.
 
 phpIPAM is developed and maintained by Miha Petkovsek, released under the GPL v3 license, project source is [here](https://github.com/phpipam/phpipam)
 
